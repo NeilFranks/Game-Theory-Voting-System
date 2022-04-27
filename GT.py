@@ -38,4 +38,4 @@ if __name__ == "__main__":
     print(f"\n\tBallot Profile:\n\n{ballot_profile}")
 
     winner = determine_winner_from_ballot_profile(ballot_profile)
-    print(f"\n\tGT declares a winner!:\n\n{winner}")
+    print(f"\n\tGT declares a winner!:\n{winner}")
