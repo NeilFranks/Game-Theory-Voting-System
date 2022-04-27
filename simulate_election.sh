@@ -1,2 +1,2 @@
 #!/bin/bash
-python simulate_election.py
+python simulate_election.py $@

@@ -6,6 +6,7 @@ import time
 from ballot_profile import BallotProfile
 import GT
 import GTD
+import Schulze
 
 
 DEFAULT_NUMBER_OF_SIMULATIONS = 100
@@ -16,6 +17,7 @@ PATH_TO_BALLOT_PROFILE_FROM_THE_PAPER = "ballot_profiles/example_from_paper.txt"
 METHODS = {
     "GT": lambda ballot_profile: GT.determine_winner_from_ballot_profile(ballot_profile),
     "GTD": lambda ballot_profile: GTD.determine_winner_from_ballot_profile(ballot_profile),
+    "Schulze": lambda ballot_profile: Schulze.determine_winner_from_ballot_profile(ballot_profile),
 }
 
 METHODS_STRING = ", ".join(METHODS)
