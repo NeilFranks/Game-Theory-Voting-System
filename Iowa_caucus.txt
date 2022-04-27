@@ -1,0 +1,8 @@
+Biden Buttigieg Sanders Warren Klobuchar Yang Steyer Others : 149
+Buttigieg Sanders Warren Biden Klobuchar Yang Steyer Others: 213
+Sanders Buttigieg Warren Biden Klobuchar Yang Steyer Others: 247
+Warren Sanders Buttigieg Klobuchar Biden Yang Steyer Others: 185
+Klobuchar Buttigieg Sanders Warren Biden Yang Steyer Others: 127
+Yang Sanders Buttigieg Biden Warren Klobuchar Steyer Others: 51
+Steyer Biden Buttigieg Sanders Warren Klobuchar Yang Others: 17
+Others Sanders Buttigieg Biden Warren Klobuchar Yang Steyer: 11
