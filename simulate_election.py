@@ -8,6 +8,7 @@ from ballot_profile import BallotProfile
 import GT
 import GTD
 import IRV
+import Plurality
 import Schulze
 
 
@@ -19,8 +20,9 @@ PATH_TO_BALLOT_PROFILE_FROM_THE_PAPER = "ballot_profiles/example_from_paper.txt"
 METHODS = {
     "GT": lambda ballot_profile: GT.determine_winner_from_ballot_profile(ballot_profile),
     "GTD": lambda ballot_profile: GTD.determine_winner_from_ballot_profile(ballot_profile),
-    "Schulze": lambda ballot_profile: Schulze.determine_winner_from_ballot_profile(ballot_profile),
+    "Plurality": lambda ballot_profile: Plurality.determine_winner_from_ballot_profile(ballot_profile),
     "IRV": lambda ballot_profile: IRV.determine_winner_from_ballot_profile(ballot_profile),
+    "Schulze": lambda ballot_profile: Schulze.determine_winner_from_ballot_profile(ballot_profile),
 }
 
 METHODS_STRING = ", ".join(METHODS)
