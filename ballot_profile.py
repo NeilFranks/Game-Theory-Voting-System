@@ -6,9 +6,32 @@ import numpy as np
 
 
 class BallotProfile:
-    def __init__(self, counter):
-        # sort by keys with the highest values
-        self.profile = counter.most_common()
+    def __init__(self, counter=None, path=None):
+        if counter:
+            # sort by keys with the highest values
+            self.profile = counter.most_common()
+
+        elif path:
+            # read the ballot profile written in the text file
+            self.profile = []
+            with open(path, 'r') as f:
+                line = f.readline()
+                while line:
+                    # get key and value
+                    key, value = line.split(":")
+                    key = key.strip()
+                    value = value.strip()
+
+                    # add key and value to the profile
+                    self.profile.append((key, int(value)))
+
+                    # read next line
+                    line = f.readline()
+        else:
+            raise ValueError("Must provide either a counter or a path.")
+
+        if len(self.profile) == 0:
+            raise Exception("Ballot profile is empty or could not be read.")
 
         # How many candidates?
         # Get the first key in the ballot profile, and split it up at spaces to count the number of candidates
@@ -17,7 +40,8 @@ class BallotProfile:
 
         # determine some canonical ordering of candidates; alphabetical order works
         self.candidates_alphabetically_sorted = sorted(
-            sample_list_of_candidates)
+            sample_list_of_candidates
+        )
 
     def __str__(self):
         s = ""
@@ -73,7 +97,7 @@ def generate_ballot_profile(number_of_candidates=None, number_of_voters=None, di
         # count it
         ballot_profile_counter[ballot] += 1
 
-    return BallotProfile(ballot_profile_counter)
+    return BallotProfile(counter=ballot_profile_counter)
 
 
 if __name__ == "__main__":
