@@ -29,30 +29,3 @@ def calculate_optimal_mixed_strategy_from_margin_matrix(margin_matrix):
 
     # optimal_mixed_strategy contains one for P1 and P2; just return the first one
     return optimal_mixed_strategy[0]
-
-
-if __name__ == "__main__":
-    # print neatly
-    np.set_printoptions(precision=5, suppress=True)
-
-    ballot_profile = generate_random_ballot_profile(
-        number_of_candidates=4,
-        number_of_voters=100,
-        dimensions=4
-    )
-    print(f"\n\tBallot Profile:\n\n{ballot_profile}")
-
-    preference_matrix = construct_preference_matrix_from_ballot_profile(
-        ballot_profile
-    )
-    print(f"\n\tPreference Matrix:\n\n{preference_matrix}")
-
-    margin_matrix = construct_margin_matrix_from_preference_matrix(
-        preference_matrix
-    )
-    print(f"\n\tMargin Matrix:\n\n{margin_matrix}")
-
-    optimal_mixed_strategy = calculate_optimal_mixed_strategy_from_margin_matrix(
-        margin_matrix
-    )
-    print(f"\n\tOptimal Mixed Strategy:\n\n{optimal_mixed_strategy}")

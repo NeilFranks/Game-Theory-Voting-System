@@ -9,6 +9,7 @@ from voting_systems import GT
 from voting_systems import GTD
 from voting_systems import Borda
 from voting_systems import IRV
+from voting_systems import Minimax
 from voting_systems import Plurality
 from voting_systems import Schulze
 
@@ -22,6 +23,7 @@ METHODS = {
     "Plurality": lambda ballot_profile: Plurality.determine_winner_from_ballot_profile(ballot_profile),
     "IRV": lambda ballot_profile: IRV.determine_winner_from_ballot_profile(ballot_profile),
     "Borda": lambda ballot_profile: Borda.determine_winner_from_ballot_profile(ballot_profile),
+    "minimax": lambda ballot_profile: Minimax.determine_winner_from_ballot_profile(ballot_profile),
     "Schulze": lambda ballot_profile: Schulze.determine_winner_from_ballot_profile(ballot_profile),
     "GTD": lambda ballot_profile: GTD.determine_winner_from_ballot_profile(ballot_profile),
     "GT": lambda ballot_profile: GT.determine_winner_from_ballot_profile(ballot_profile),

@@ -21,6 +21,8 @@ For the Schulze example from the paper, you can run `./simulate_election.sh ball
 
 - IRV tabulated using [pyrankvote](https://pypi.org/project/pyrankvote/)
 
+- Minimax tabulated using [votelib](https://pypi.org/project/votelib/)
+
 - Schulze tabulated using [schulze-voting](https://pypi.org/project/schulze-voting/)
 
 - Optimal mixed strategy computed using [Nashpy](https://pypi.org/project/nashpy/)
