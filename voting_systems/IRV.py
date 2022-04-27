@@ -4,7 +4,7 @@ from ballot_profile import generate_random_ballot_profile
 
 
 def determine_winner_from_ballot_profile(ballot_profile):
-    # instantiate list of candidates
+    # instantiate dictionary of candidates
     candidate_dictionary = {
         candidate: pyrankvote.Candidate(candidate)
         for candidate in ballot_profile.candidates_alphabetically_sorted

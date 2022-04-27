@@ -17,8 +17,10 @@ For the Schulze example from the paper, you can run `./simulate_election.sh ball
 
 ## Implementation details
 
-- IRV simulated using [pyrankvote](https://pypi.org/project/pyrankvote/)
+- Borda tabulated using [borda](https://pypi.org/project/borda/)
 
-- Schulze simulated using [schulze-voting](https://pypi.org/project/schulze-voting/)
+- IRV tabulated using [pyrankvote](https://pypi.org/project/pyrankvote/)
+
+- Schulze tabulated using [schulze-voting](https://pypi.org/project/schulze-voting/)
 
 - Optimal mixed strategy computed using [Nashpy](https://pypi.org/project/nashpy/)

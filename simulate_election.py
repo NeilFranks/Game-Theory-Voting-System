@@ -7,6 +7,7 @@ from ballot_profile import BallotProfile
 
 from voting_systems import GT
 from voting_systems import GTD
+from voting_systems import Borda
 from voting_systems import IRV
 from voting_systems import Plurality
 from voting_systems import Schulze
@@ -18,11 +19,12 @@ PATH_TO_BALLOT_PROFILE_FROM_THE_PAPER = "ballot_profiles/example_from_paper.txt"
 
 # enumerate the voting systems we want to evaluate
 METHODS = {
-    "GT": lambda ballot_profile: GT.determine_winner_from_ballot_profile(ballot_profile),
-    "GTD": lambda ballot_profile: GTD.determine_winner_from_ballot_profile(ballot_profile),
     "Plurality": lambda ballot_profile: Plurality.determine_winner_from_ballot_profile(ballot_profile),
     "IRV": lambda ballot_profile: IRV.determine_winner_from_ballot_profile(ballot_profile),
+    "Borda": lambda ballot_profile: Borda.determine_winner_from_ballot_profile(ballot_profile),
     "Schulze": lambda ballot_profile: Schulze.determine_winner_from_ballot_profile(ballot_profile),
+    "GTD": lambda ballot_profile: GTD.determine_winner_from_ballot_profile(ballot_profile),
+    "GT": lambda ballot_profile: GT.determine_winner_from_ballot_profile(ballot_profile),
 }
 
 METHODS_STRING = ", ".join(METHODS)

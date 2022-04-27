@@ -1,3 +1,6 @@
+import sys  # NOQA
+sys.path.append('../Game-Theory-Voting-System')  # NOQA
+
 from collections import Counter
 
 from ballot_profile import generate_random_ballot_profile
