@@ -14,18 +14,29 @@ def calculate_optimal_mixed_strategy_from_margin_matrix(margin_matrix):
     # use vertex enumeration to compute all optimal mixed strategies
     optimal_mixed_strategies = game.vertex_enumeration()
 
-    # check if you have more than one optimal mixed strategy
-    optimal_mixed_strategy = next(optimal_mixed_strategies)
     try:
-        another_optimal_mixed_strategy = next(optimal_mixed_strategies)
-        if another_optimal_mixed_strategy:
-            print(
-                f"Oooh, margin matrix has more than one optimal mixed strategy:\n{margin_matrix}"
-            )
+        optimal_mixed_strategies = list(optimal_mixed_strategies)
 
-            # TODO: find the most balanced optimal mixed strategy
-    except:
-        pass
+        # each optimal mixed strategy contains a strategy for player 1 and player 2.
+        # we can use either one (they're the same)
+        P1_optimal_mixed_strategies = [
+            optimal_mixed_strategy[0]
+            for optimal_mixed_strategy in optimal_mixed_strategies
+        ]
 
-    # optimal_mixed_strategy contains one for P1 and P2; just return the first one
-    return optimal_mixed_strategy[0]
+        # if there is more than one optimal mixed strategy,
+        # then the best one is the one the least sum of squares of its values
+        sorted_P1_optimal_mixed_strategies = sorted(
+            P1_optimal_mixed_strategies,
+            key=lambda mixed_strategy: np.sum(mixed_strategy ** 2)
+        )
+
+        winner = sorted_P1_optimal_mixed_strategies[0]
+
+    except Exception as e:
+        print(e)
+
+        # On any failure, just pick one optimal mixed strategy
+        winner = next(optimal_mixed_strategies)[0]
+
+    return winner

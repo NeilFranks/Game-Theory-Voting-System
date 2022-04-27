@@ -2,6 +2,12 @@
 
 Based on https://www.stat.uchicago.edu/~lekheng/meetings/mathofranking/ref/rivest.pdf
 
+## Setup
+
+(_It is suggested to work in a virtual environment)_
+
+Running `pip install -r requirements.txt` should install everything you need in order to run the code.
+
 ## Running simulations
 
 To simulate elections, you can either run `simulate_election.py` directly, or run `./simulate_election.sh`
@@ -11,9 +17,11 @@ The command `./simulate_election.sh` takes arguments:
 - arg1: `path_to_ballot_profile` (default: `"ballot_profiles/example_from_paper.txt"`)
 - arg2: `number_of_simulations` (default: `100`)
 
-For the simple example from the paper, you can simply run `./simulate_election.sh`
+To replicate the simple example from the paper, you can simply run `./simulate_election.sh`
 
-For the Schulze example from the paper, you can run `./simulate_election.sh ballot_profiles/Schulze_test.txt`
+To replicate the Schulze example from the paper, you can run `./simulate_election.sh ballot_profiles/Schulze_test.txt`
+
+To replicate the main experiment which produces the cumulative margin table from the paper, you can run `./experiment.sh`
 
 ## Implementation details
 

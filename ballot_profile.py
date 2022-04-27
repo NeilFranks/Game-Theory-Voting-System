@@ -54,17 +54,18 @@ class BallotProfile:
 
 
 class RandomPosition:
-    def __init__(self, name=None, dimensions=2):
+    def __init__(self, name=None, dimensions=3):
         self.name = name
-        self.coordinates = np.array(
-            [random.randrange(0, 100) for _ in range(dimensions)]
-        )
+
+        # initialize position on the unit sphere
+        vector = np.random.randn(dimensions)
+        self.position = vector / np.linalg.norm(vector, axis=0)
 
     def distance_to(self, otherPosition):
-        return np.linalg.norm(self.coordinates - otherPosition.coordinates)
+        return np.linalg.norm(self.position - otherPosition.position)
 
 
-def generate_random_ballot_profile(number_of_candidates=None, number_of_voters=None, dimensions=2):
+def generate_random_ballot_profile(number_of_candidates=None, number_of_voters=None, dimensions=3):
     # How many candidates? How many voters?
     if number_of_candidates is None:
         number_of_candidates = random.randrange(2, 20)  # up to 20 candidates!

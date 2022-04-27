@@ -39,4 +39,4 @@ def determine_winner_from_ballot_profile(ballot_profile):
     # may have multiple "winners" (tie); just take the first one
     winner = winners[0]
 
-    return winner
+    return winner.name

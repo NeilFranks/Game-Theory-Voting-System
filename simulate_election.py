@@ -5,9 +5,9 @@ import time
 
 from ballot_profile import BallotProfile
 
+from voting_systems import Borda
 from voting_systems import GT
 from voting_systems import GTD
-from voting_systems import Borda
 from voting_systems import IRV
 from voting_systems import Minimax
 from voting_systems import Plurality
@@ -32,15 +32,7 @@ METHODS = {
 METHODS_STRING = ", ".join(METHODS)
 
 
-def simulate(path_to_ballot_profile, number_of_simulations):
-    print()
-    print(f"Simulating election {number_of_simulations} times")
-    print(f"Using ballot profile in {path_to_ballot_profile}")
-    print(f"Using voting systems: {METHODS_STRING}")
-
-    # read in a ballot profile
-    ballot_profile = BallotProfile(path=path_to_ballot_profile)
-
+def simulate(ballot_profile, number_of_simulations):
     def print_simulation_results(voting_system, results, seconds_elapsed):
         # double check we got 1 winner per simulation
         assert sum([result[1] for result in results]) == number_of_simulations
@@ -98,8 +90,15 @@ def main(*args):
     # make sure you have a valid path
     assert os.path.isfile(path_to_ballot_profile)
 
+    # read in the ballot profile
+    ballot_profile = BallotProfile(path=path_to_ballot_profile)
+
     # run the simulation
-    simulate(path_to_ballot_profile, number_of_simulations)
+    print()
+    print(f"Simulating election {number_of_simulations} times")
+    print(f"Using ballot profile in {path_to_ballot_profile}")
+    print(f"Using voting systems: {METHODS_STRING}")
+    simulate(ballot_profile, number_of_simulations)
 
 
 if __name__ == "__main__":
