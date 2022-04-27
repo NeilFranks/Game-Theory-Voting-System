@@ -2,7 +2,7 @@ import numpy as np
 
 import nashpy as nash
 
-from ballot_profile import generate_ballot_profile
+from ballot_profile import generate_random_ballot_profile
 from preference_matrix import construct_preference_matrix_from_ballot_profile
 from margin_matrix import construct_margin_matrix_from_preference_matrix
 
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # print neatly
     np.set_printoptions(precision=5, suppress=True)
 
-    ballot_profile = generate_ballot_profile(
+    ballot_profile = generate_random_ballot_profile(
         number_of_candidates=4,
         number_of_voters=100,
         dimensions=4

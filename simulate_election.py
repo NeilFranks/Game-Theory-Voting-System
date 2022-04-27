@@ -4,8 +4,10 @@ import sys
 import time
 
 from ballot_profile import BallotProfile
+
 import GT
 import GTD
+import IRV
 import Schulze
 
 
@@ -18,6 +20,7 @@ METHODS = {
     "GT": lambda ballot_profile: GT.determine_winner_from_ballot_profile(ballot_profile),
     "GTD": lambda ballot_profile: GTD.determine_winner_from_ballot_profile(ballot_profile),
     "Schulze": lambda ballot_profile: Schulze.determine_winner_from_ballot_profile(ballot_profile),
+    "IRV": lambda ballot_profile: IRV.determine_winner_from_ballot_profile(ballot_profile),
 }
 
 METHODS_STRING = ", ".join(METHODS)

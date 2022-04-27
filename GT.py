@@ -2,7 +2,7 @@ import random
 
 import numpy as np
 
-from ballot_profile import generate_ballot_profile
+from ballot_profile import generate_random_ballot_profile
 from preference_matrix import construct_preference_matrix_from_ballot_profile
 from margin_matrix import construct_margin_matrix_from_preference_matrix
 from optimal_mixed_strategy import calculate_optimal_mixed_strategy_from_margin_matrix
@@ -34,7 +34,7 @@ def determine_winner_from_ballot_profile(ballot_profile):
 
 
 if __name__ == "__main__":
-    ballot_profile = generate_ballot_profile(number_of_candidates=4)
+    ballot_profile = generate_random_ballot_profile(number_of_candidates=4)
     print(f"\n\tBallot Profile:\n\n{ballot_profile}")
 
     winner = determine_winner_from_ballot_profile(ballot_profile)

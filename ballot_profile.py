@@ -64,7 +64,7 @@ class RandomPosition:
         return np.linalg.norm(self.coordinates - otherPosition.coordinates)
 
 
-def generate_ballot_profile(number_of_candidates=None, number_of_voters=None, dimensions=2):
+def generate_random_ballot_profile(number_of_candidates=None, number_of_voters=None, dimensions=2):
     # How many candidates? How many voters?
     if number_of_candidates is None:
         number_of_candidates = random.randrange(2, 20)  # up to 20 candidates!
@@ -101,4 +101,4 @@ def generate_ballot_profile(number_of_candidates=None, number_of_voters=None, di
 
 
 if __name__ == "__main__":
-    generate_ballot_profile()
+    generate_random_ballot_profile()
