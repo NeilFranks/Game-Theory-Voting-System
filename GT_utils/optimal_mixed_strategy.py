@@ -3,8 +3,8 @@ import numpy as np
 import nashpy as nash
 
 from ballot_profile import generate_random_ballot_profile
-from preference_matrix import construct_preference_matrix_from_ballot_profile
-from margin_matrix import construct_margin_matrix_from_preference_matrix
+from GT_utils.preference_matrix import construct_preference_matrix_from_ballot_profile
+from GT_utils.margin_matrix import construct_margin_matrix_from_preference_matrix
 
 
 def calculate_optimal_mixed_strategy_from_margin_matrix(margin_matrix):

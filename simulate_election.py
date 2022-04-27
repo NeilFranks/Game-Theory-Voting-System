@@ -5,11 +5,11 @@ import time
 
 from ballot_profile import BallotProfile
 
-import GT
-import GTD
-import IRV
-import Plurality
-import Schulze
+from voting_systems import GT
+from voting_systems import GTD
+from voting_systems import IRV
+from voting_systems import Plurality
+from voting_systems import Schulze
 
 
 DEFAULT_NUMBER_OF_SIMULATIONS = 100
