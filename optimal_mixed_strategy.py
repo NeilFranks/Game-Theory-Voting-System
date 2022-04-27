@@ -2,7 +2,7 @@ import numpy as np
 
 import nashpy as nash
 
-from generate_ballot_profile import generate_ballot_profile
+from ballot_profile import generate_ballot_profile
 from preference_matrix import construct_preference_matrix_from_ballot_profile
 from margin_matrix import construct_margin_matrix_from_preference_matrix
 
