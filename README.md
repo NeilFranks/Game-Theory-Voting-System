@@ -1,6 +1,7 @@
 # Game-Theory-Voting-System
 
-Python implementation of https://www.stat.uchicago.edu/~lekheng/meetings/mathofranking/ref/rivest.pdf
+Python implementation of the paper [An Optimal Single-Winner Preferential Voting System Based on
+Game Theory](https://www.stat.uchicago.edu/~lekheng/meetings/mathofranking/ref/rivest.pdf) by Rivest and Shen.
 
 ## Setup
 
