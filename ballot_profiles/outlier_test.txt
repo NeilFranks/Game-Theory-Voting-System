@@ -1,0 +1,4 @@
+A B C D: 35
+B C D A: 35
+C D A B: 15
+D A B C: 15
