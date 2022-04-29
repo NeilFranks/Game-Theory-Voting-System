@@ -1,6 +1,6 @@
 # Game-Theory-Voting-System
 
-Based on https://www.stat.uchicago.edu/~lekheng/meetings/mathofranking/ref/rivest.pdf
+Python implementation of https://www.stat.uchicago.edu/~lekheng/meetings/mathofranking/ref/rivest.pdf
 
 ## Setup
 
@@ -17,7 +17,7 @@ The command `./simulate_election.sh` takes arguments:
 - arg1: `path_to_ballot_profile` (default: `"ballot_profiles/example_from_paper.txt"`)
 - arg2: `number_of_simulations` (default: `100`)
 
-The script will simulated an election on a ballot profile `number_of_simulations` times. It is expected that IRV and GT voting systems will be the only ones where the same candidate may not win every simulation. This is due to GT's use of random selection based on probabilities from the computed optimal mixed strategy, and the IRV implementation's use of random selection in the case of ties.
+The script will simulate an election on a ballot profile `number_of_simulations` times. It is expected that IRV and GT voting systems will be the only ones where the same candidate may not win every simulation. This is due to GT's use of random selection based on probabilities from the computed optimal mixed strategy, and the IRV implementation's use of random selection in the case of ties.
 
 To replicate the simple example from the paper, you can simply run `./simulate_election.sh`
 
