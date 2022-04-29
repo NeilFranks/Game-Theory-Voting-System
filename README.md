@@ -17,6 +17,8 @@ The command `./simulate_election.sh` takes arguments:
 - arg1: `path_to_ballot_profile` (default: `"ballot_profiles/example_from_paper.txt"`)
 - arg2: `number_of_simulations` (default: `100`)
 
+The script will simulated an election on a ballot profile `number_of_simulations` times. It is expected that GT voting system will be the only one where the same candidate may not win every simulation. This is due to GT's employment of random selection based on probabilities from the computed optimal mixed strategy.
+
 To replicate the simple example from the paper, you can simply run `./simulate_election.sh`
 
 To replicate the Schulze example from the paper, you can run `./simulate_election.sh ballot_profiles/Schulze_test.txt`

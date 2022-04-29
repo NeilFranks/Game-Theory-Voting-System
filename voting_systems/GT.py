@@ -7,8 +7,7 @@ from GT_utils.preference_matrix import construct_preference_matrix_from_ballot_p
 from GT_utils.margin_matrix import construct_margin_matrix_from_preference_matrix
 from GT_utils.optimal_mixed_strategy import calculate_optimal_mixed_strategy_from_margin_matrix
 
-
-def determine_winner_from_ballot_profile(ballot_profile):
+def calculate_optimal_mixed_strategy_from_ballot_profile(ballot_profile):
     # turn ballot profile into a preference matrix
     preference_matrix = construct_preference_matrix_from_ballot_profile(
         ballot_profile
@@ -23,6 +22,12 @@ def determine_winner_from_ballot_profile(ballot_profile):
     optimal_mixed_strategy = calculate_optimal_mixed_strategy_from_margin_matrix(
         margin_matrix
     )
+
+    return optimal_mixed_strategy
+
+def determine_winner_from_ballot_profile(ballot_profile):
+    # calculate optimal mixed strategy
+    optimal_mixed_strategy = calculate_optimal_mixed_strategy_from_ballot_profile(ballot_profile)
 
     # select a winner using the probabilities from the optimal mixed strategy
     winner = random.choices(

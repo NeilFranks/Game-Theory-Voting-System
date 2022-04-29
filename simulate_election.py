@@ -3,6 +3,8 @@ import os
 import sys
 import time
 
+import numpy as np
+
 from ballot_profile import BallotProfile
 
 from voting_systems import Borda
@@ -12,6 +14,8 @@ from voting_systems import IRV
 from voting_systems import Minimax
 from voting_systems import Plurality
 from voting_systems import Schulze
+
+from voting_systems.GT import calculate_optimal_mixed_strategy_from_ballot_profile
 
 
 DEFAULT_NUMBER_OF_SIMULATIONS = 100
@@ -33,7 +37,7 @@ METHODS_STRING = ", ".join(METHODS)
 
 
 def simulate(ballot_profile, number_of_simulations):
-    def print_simulation_results(voting_system, results, seconds_elapsed):
+    def print_simulation_results(voting_system, ballot_profile, results, seconds_elapsed):
         # double check we got 1 winner per simulation
         assert sum([result[1] for result in results]) == number_of_simulations
 
@@ -43,6 +47,22 @@ def simulate(ballot_profile, number_of_simulations):
 
         for key, value in results:
             print(f"\t{key} won {value} times")
+
+        # if voting system is GT or GTD, print the optimal mixed strategy
+        if voting_system in ["GTD", "GT"]:
+            # get the optimal mixed strategy
+            optimal_mixed_strategy = calculate_optimal_mixed_strategy_from_ballot_profile(ballot_profile)
+
+            # match candidates to their probabilities
+            candidate_probabilites = [
+                (
+                    ballot_profile.candidates_alphabetically_sorted[i],
+                    round(optimal_mixed_strategy[i], 2)  # round probability to 2 decimal places
+                ) for i in range(len(optimal_mixed_strategy))
+            ]
+            
+            # pretty print
+            print(f"\tOptimal mixed strategy was: {candidate_probabilites}")
 
     # Simulate the election using every voting system
     for voting_system in METHODS:
@@ -58,6 +78,7 @@ def simulate(ballot_profile, number_of_simulations):
 
         print_simulation_results(
             voting_system=voting_system,
+            ballot_profile=ballot_profile,
             results=winner_counter.most_common(),  # sort results by most wins
             seconds_elapsed=time.time()-start_time
         )
