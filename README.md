@@ -25,7 +25,9 @@ To replicate the Schulze example from the paper, you can run `./simulate_electio
 
 To see how candidates from the 2020 Iowa democratic caucus might fare under different voting systems, you can run `./simulate_election.sh ballot_profiles/Iowa_caucus.txt`
 
-To replicate the main experiment which produces the cumulative margin table from the paper, you can run `./experiment.sh`
+---
+
+The main experiment of the paper simulates elections on 10,000 randomized ballot profiles, and enumerates the cumulative margin by which the voters prefer the outcome of one voting system versus another. To replicate this experiment, you can run `./experiment.sh`, which produces the table `cumulative_margins_table.csv`.
 
 ## Implementation details
 

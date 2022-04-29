@@ -14,6 +14,14 @@ from voting_systems import Minimax
 from voting_systems import Plurality
 from voting_systems import Schulze
 
+"""
+This is an implementation of the paper's main experiment,
+which holds one elections for 10,000 randomized ballot profiles,
+and enumerates the cumulative number of voters who preferred the
+outcome of one voting system over another.
+"""
+
+
 # parameters from the paper's main experiment
 NUMBER_OF_CANDIDATES = 5
 NUMBER_OF_VOTERS = 100
