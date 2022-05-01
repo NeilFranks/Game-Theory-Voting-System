@@ -40,6 +40,6 @@ The main experiment of the paper simulates elections on 10,000 randomized ballot
 
 - Minimax tabulated using [votelib](https://pypi.org/project/votelib/)
 
-- Schulze tabulated using [schulze-voting](https://pypi.org/project/schulze-voting/)
+- Schulze tabulated using [votelib](https://pypi.org/project/votelib/)
 
 - Optimal mixed strategy computed using [Nashpy](https://pypi.org/project/nashpy/)

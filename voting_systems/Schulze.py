@@ -1,46 +1,44 @@
 import schulze_voting
+import votelib
+import votelib.evaluate.condorcet
 
-from ballot_profile import generate_random_ballot_profile
-
-
-def convert_preference_list_into_ranking(preference_list, canonical_order):
-    # - preference_list may look like [C, D, B, A], indicating a preference for C over all others
-    # - canonical_order lists the candidates in alphabetical order; e.g. [A, B, C, D]
-    # - If the preference_list is [C, D, B, A], SchulzeVote is expected to look like [3, 2, 0, 1],
-    #   which indicated A is ranked lowest, B is ranked next lowest, C is ranked highest, and D is ranked second highest
-
-    # make sure preference list is a list, not a str
-    if isinstance(preference_list, str):
-        preference_list = preference_list.split(" ")
-
-    return [
-        preference_list.index(candidate)
-        for candidate in canonical_order
-    ]
+from GT_utils.preference_matrix import construct_preference_matrix_from_ballot_profile
 
 
 def determine_winner_from_ballot_profile(ballot_profile):
-    # cast votes from ballot profile
-    votes = [
-        schulze_voting.SchulzeVote(
-            ranking=convert_preference_list_into_ranking(
-                preference_list,
-                ballot_profile.candidates_alphabetically_sorted
-            ),
-            weight=number_of_voters
-        )
-        for preference_list, number_of_voters in ballot_profile
+    # instantiate canonical order of candidates
+    canonical_list_of_candidates = [
+        votelib.candidate.Person(candidate)
+        for candidate in ballot_profile.candidates_alphabetically_sorted
     ]
 
-    # calculate winner(s)
-    result = schulze_voting.evaluate_schulze(
-        votes=votes,
-        n=ballot_profile.number_of_candidates
+    # from the ballot profile, extract pairwise wins
+    # can use preference matrix for this :)
+    preference_matrix = construct_preference_matrix_from_ballot_profile(
+        ballot_profile
     )
-    winner_indices = result.candidate_wins[0]
 
-    # may have multiple "winners" (tie); just take the first one
-    winner_index = winner_indices[0]
-    winner = ballot_profile.candidates_alphabetically_sorted[winner_index]
+    # also need to get pairwise wins
+    pairwise_wins_dictionary = {
+        # the key is the tuple (row_candidate, column_candidate)
+        (
+            canonical_list_of_candidates[row_index],
+            canonical_list_of_candidates[column_index]
+        ): int(preference_matrix[row_index][column_index])  # the value is the margin at preference_matrix[row][column]
 
-    return winner
+        for row_index in range(len(preference_matrix))
+        for column_index in range(len(preference_matrix))
+    }
+
+    # run Minimax based on margins
+    results = votelib.evaluate.condorcet.Schulze().evaluate(
+        votes=pairwise_wins_dictionary,
+        n_seats=1
+    )
+
+    # may have multiple "winners" (tie); break all ties
+    winner = votelib.evaluate.core.Tie.break_by_list(
+        elected=results,
+        breaker=canonical_list_of_candidates  # alphabetical order is tiebreaker
+    )[0]
+    return winner.name

@@ -1,9 +1,7 @@
 import votelib
 import votelib.evaluate.condorcet
 
-from ballot_profile import generate_random_ballot_profile
 from GT_utils.preference_matrix import construct_preference_matrix_from_ballot_profile
-from GT_utils.margin_matrix import construct_margin_matrix_from_preference_matrix
 
 
 def determine_winner_from_ballot_profile(ballot_profile):
@@ -18,19 +16,6 @@ def determine_winner_from_ballot_profile(ballot_profile):
     preference_matrix = construct_preference_matrix_from_ballot_profile(
         ballot_profile
     )
-    # margin_matrix = construct_margin_matrix_from_preference_matrix(
-    #     preference_matrix
-    # )
-    # pairwise_margin_dictionary = {
-    #     # the key is the tuple (row_candidate, column_candidate)
-    #     (
-    #         canonical_list_of_candidates[row_index],
-    #         canonical_list_of_candidates[column_index]
-    #     ): int(margin_matrix[row_index][column_index])  # the value is the margin at margin_matrix[row][column]
-
-    #     for row_index in range(len(margin_matrix))
-    #     for column_index in range(len(margin_matrix))
-    # }
 
     # also need to get pairwise wins
     pairwise_wins_dictionary = {

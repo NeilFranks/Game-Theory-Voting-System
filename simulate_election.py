@@ -51,16 +51,18 @@ def simulate(ballot_profile, number_of_simulations):
         # if voting system is GT or GTD, print the optimal mixed strategy
         if voting_system in ["GTD", "GT"]:
             # get the optimal mixed strategy
-            optimal_mixed_strategy = calculate_optimal_mixed_strategy_from_ballot_profile(ballot_profile)
+            optimal_mixed_strategy = calculate_optimal_mixed_strategy_from_ballot_profile(
+                ballot_profile)
 
             # match candidates to their probabilities
             candidate_probabilites = [
                 (
                     ballot_profile.candidates_alphabetically_sorted[i],
-                    round(optimal_mixed_strategy[i], 2)  # round probability to 2 decimal places
+                    # round probability to 2 decimal places
+                    round(optimal_mixed_strategy[i], 2)
                 ) for i in range(len(optimal_mixed_strategy))
             ]
-            
+
             # pretty print
             print(f"\tOptimal mixed strategy was: {candidate_probabilites}")
 

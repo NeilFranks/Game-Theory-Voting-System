@@ -1,0 +1,4 @@
+A B C D: 40
+B C D A: 30
+C A D: 20
+C B: 10
