@@ -49,4 +49,4 @@ The main experiment of the paper simulates elections on 10,000 randomized ballot
 [1] Luis, O. (2013). Borda (Version 0.1) [Borda](https://github.com/logc/borda) <br />
 [2] Jon, T. (2019). PyRankVote (Version 2.0.3) [PyRankVote](https://github.com/jontingvold/pyrankvote) <br />
 [3] Jan, S. (2020). votelib (Version 0.4.0) [votelib](https://github.com/simberaj/votelib) <br />
-[4] Vince, K., & James, C. (2016). NashPy (Version 0.0.32) [NashPy](https://github.com/drvinceknight/Nashpy)
+[4] Vince, K., & James, C. (2016). NashPy (Version 0.0.21) [NashPy](https://github.com/drvinceknight/Nashpy)
