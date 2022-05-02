@@ -43,3 +43,10 @@ The main experiment of the paper simulates elections on 10,000 randomized ballot
 - Schulze tabulated using [votelib](https://pypi.org/project/votelib/)
 
 - Optimal mixed strategy computed using [Nashpy](https://pypi.org/project/nashpy/)
+
+## Citations
+
+[1] github. (2013). GitHub. Retrieved from https://github.com/logc/borda#readme
+[2] github. (2019). GitHub. Retrieved from https://github.com/jontingvold/pyrankvote
+[3] github. (2022). GitHub. Retrieved fromhttps://github.com/simberaj/votelib
+[4] github. (2016). GitHub. https://github.com/drvinceknight/Nashpy
