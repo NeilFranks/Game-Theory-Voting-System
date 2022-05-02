@@ -59,7 +59,7 @@ def simulate(ballot_profile, number_of_simulations):
                 (
                     ballot_profile.candidates_alphabetically_sorted[i],
                     # round probability to 2 decimal places
-                    round(optimal_mixed_strategy[i], 2)
+                    round(optimal_mixed_strategy[i], 3)
                 ) for i in range(len(optimal_mixed_strategy))
             ]
 

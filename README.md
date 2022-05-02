@@ -26,6 +26,8 @@ To replicate the Schulze example from the paper, you can run `./simulate_electio
 
 To see what happens in the case of a four-way tie, you can run `./simulate_election.sh ballot_profiles/tie.txt`
 
+To see what happens in the case of a ballot profile that produces an extremely low chance of one candidate winning under GT, you can run `./simulate_election.sh ballot_profiles/extreme.txt`
+
 To see how candidates from the 2020 Iowa democratic caucus might fare under different voting systems, you can run `./simulate_election.sh ballot_profiles/Iowa_caucus.txt`
 
 ---
