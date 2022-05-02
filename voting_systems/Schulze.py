@@ -36,6 +36,11 @@ def determine_winner_from_ballot_profile(ballot_profile):
         n_seats=1
     )
 
+    # in the case of omnidirectional ties, there will have been an empty list of candidates returned.
+    # therefore, we should simply treat the entire list of candidates as the results
+    if len(results) < 1:
+        results = canonical_list_of_candidates
+
     # may have multiple "winners" (tie); break all ties
     winner = votelib.evaluate.core.Tie.break_by_list(
         elected=results,
