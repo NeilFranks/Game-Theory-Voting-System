@@ -46,7 +46,9 @@ The main experiment of the paper simulates elections on 10,000 randomized ballot
 
 ## Citations
 
-[1] github. (2013). GitHub. Retrieved from https://github.com/logc/borda#readme <br />
+Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer software]. https://doi.org/10.5281/zenodo.1234
+
+[1] Luis, O. Borda (Version 0.1) [Borda] (https://github.com/logc/borda) <br />
 [2] github. (2019). GitHub. Retrieved from https://github.com/jontingvold/pyrankvote
 [3] github. (2022). GitHub. Retrieved fromhttps://github.com/simberaj/votelib
 [4] github. (2016). GitHub. https://github.com/drvinceknight/Nashpy
