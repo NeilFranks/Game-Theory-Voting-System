@@ -46,8 +46,6 @@ The main experiment of the paper simulates elections on 10,000 randomized ballot
 
 ## Citations
 
-Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer software]. https://doi.org/10.5281/zenodo.1234
-
 [1] Luis, O. (2013). Borda (Version 0.1) [Borda](https://github.com/logc/borda) <br />
 [2] Jon, T. (2019). PyRankVote (Version 2.0.3) [PyRankVote](https://github.com/jontingvold/pyrankvote) <br />
 [3] Jan, S. (2020). votelib (Version 0.4.0) [votelib](https://github.com/simberaj/votelib) <br />
