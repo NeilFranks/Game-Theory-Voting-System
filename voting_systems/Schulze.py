@@ -1,4 +1,3 @@
-import schulze_voting
 import votelib
 import votelib.evaluate.condorcet
 
